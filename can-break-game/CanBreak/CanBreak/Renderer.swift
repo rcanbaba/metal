@@ -21,9 +21,12 @@ final class Renderer: NSObject {
     private let indices: [UInt16] = [ 0, 1, 2,
                                       2, 3, 0
                                     ]
+    private var constants = Constants()
+    private var time: Float = 0
     
     private var pipelineState: MTLRenderPipelineState?
     private var vertexBuffer: MTLBuffer?
+    private var indexBuffer: MTLBuffer?
     
     init(device: MTLDevice) {
         self.device = device
@@ -35,6 +38,7 @@ final class Renderer: NSObject {
     
     private func buildModel() {
         vertexBuffer = device.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Float>.size, options: [])
+        indexBuffer = device.makeBuffer(bytes: indices, length: indices.count * MemoryLayout<UInt16>.size, options: [])
     }
     
     private func buildPipelineState() {
@@ -62,15 +66,29 @@ extension Renderer: MTKViewDelegate {
     }
     
     // draw textures for every frame
+    // calls draw method 60 times per second
     func draw(in view: MTKView) {
-        guard let drawable = view.currentDrawable, let pipelineState =  pipelineState, let descriptor = view.currentRenderPassDescriptor else {return}
+        guard let drawable = view.currentDrawable,
+              let pipelineState =  pipelineState,
+              let indexBuffer = indexBuffer,
+              let descriptor = view.currentRenderPassDescriptor else {return}
         // command buffer created to hold command encoder
         let commandBuffer = commandQueue?.makeCommandBuffer()
+        
+        // calls draw method 60 times per second
+        time += 1 / Float(view.preferredFramesPerSecond)
+        // amacımız time değiştikce sin içinde max min gidip gelsin değer
+        let animateBy = abs(sin(time)/2 + 0.5)
+        constants.animatedBy = animateBy
+        
         let commandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: descriptor)
         /// ----------------------------
         commandEncoder?.setRenderPipelineState(pipelineState)
         commandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        commandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
+        
+        commandEncoder?.setVertexBytes(&constants, length: MemoryLayout<Constants>.stride, index: 1)
+        
+        commandEncoder?.drawIndexedPrimitives(type: .triangle, indexCount: indices.count, indexType: .uint16, indexBuffer: indexBuffer, indexBufferOffset: 0)
         /// ----------------------------
         // finished encoding all the commands then sent the command buffer to GPU(device)
         commandEncoder?.endEncoding()
