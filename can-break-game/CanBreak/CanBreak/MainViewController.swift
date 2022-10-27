@@ -29,10 +29,10 @@ class MainViewController: UIViewController {
         }
         metalView.clearColor = Colors.background
         renderer = Renderer(device: device)
+        renderer?.scene = GameScene(device: device, size: view.bounds.size)
         metalView.delegate = renderer
     }
 
-    
     private func configureUI() {
         view.addSubview(metalView)
         metalView.translatesAutoresizingMaskIntoConstraints = false

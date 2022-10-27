@@ -25,5 +25,5 @@ vertex float4 vertex_shader(const device packed_float3 *vertices [[ buffer(0) ]]
 
 // in fragment func prefix -> fragment, half4 -> smaller float
 fragment half4 fragment_shader() {
-    return half4(1, 0, 0, 1); // red color (r, g, b, a)
+    return half4(1, 1, 0, 1); // red color (r, g, b, a)
 }

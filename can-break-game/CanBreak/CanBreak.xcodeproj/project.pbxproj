@@ -16,6 +16,11 @@
 		B46D7DA929091907009F43C3 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DA829091907009F43C3 /* Shader.metal */; };
 		B46D7DAB29092720009F43C3 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DAA29092720009F43C3 /* Renderer.swift */; };
 		B46D7DAD2909543A009F43C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DAC2909543A009F43C3 /* Constants.swift */; };
+		B46D7DB3290A6A32009F43C3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB2290A6A32009F43C3 /* Model.swift */; };
+		B46D7DB6290A6AC7009F43C3 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB5290A6AC7009F43C3 /* Plane.swift */; };
+		B46D7DB8290A85D7009F43C3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB7290A85D7009F43C3 /* Node.swift */; };
+		B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB9290A88E9009F43C3 /* Scene.swift */; };
+		B46D7DBC290A8976009F43C3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DBB290A8976009F43C3 /* GameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		B46D7DA829091907009F43C3 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 		B46D7DAA29092720009F43C3 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		B46D7DAC2909543A009F43C3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B46D7DB2290A6A32009F43C3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B46D7DB5290A6AC7009F43C3 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		B46D7DB7290A85D7009F43C3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		B46D7DB9290A88E9009F43C3 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		B46D7DBB290A8976009F43C3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,9 @@
 				B46D7DA72907267F009F43C3 /* Core */,
 				B46D7DA52907263B009F43C3 /* Colors.swift */,
 				B46D7DAC2909543A009F43C3 /* Constants.swift */,
+				B46D7DB2290A6A32009F43C3 /* Model.swift */,
+				B46D7DBD290A89DE009F43C3 /* Scenes */,
+				B46D7DB4290A6AA9009F43C3 /* Nodes */,
 				B46D7DA329072436009F43C3 /* MainViewController.swift */,
 				B46D7DA829091907009F43C3 /* Shader.metal */,
 				B46D7DAA29092720009F43C3 /* Renderer.swift */,
@@ -82,6 +95,24 @@
 				B46D7D9A290722BB009F43C3 /* LaunchScreen.storyboard */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		B46D7DB4290A6AA9009F43C3 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				B46D7DB7290A85D7009F43C3 /* Node.swift */,
+				B46D7DB5290A6AC7009F43C3 /* Plane.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		B46D7DBD290A89DE009F43C3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B46D7DBB290A8976009F43C3 /* GameScene.swift */,
+				B46D7DB9290A88E9009F43C3 /* Scene.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,12 +186,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B46D7D90290722B8009F43C3 /* AppDelegate.swift in Sources */,
+				B46D7DB8290A85D7009F43C3 /* Node.swift in Sources */,
+				B46D7DB6290A6AC7009F43C3 /* Plane.swift in Sources */,
 				B46D7DA62907263B009F43C3 /* Colors.swift in Sources */,
 				B46D7D92290722B8009F43C3 /* SceneDelegate.swift in Sources */,
 				B46D7DA929091907009F43C3 /* Shader.metal in Sources */,
+				B46D7DBC290A8976009F43C3 /* GameScene.swift in Sources */,
 				B46D7DAD2909543A009F43C3 /* Constants.swift in Sources */,
 				B46D7DAB29092720009F43C3 /* Renderer.swift in Sources */,
 				B46D7DA429072436009F43C3 /* MainViewController.swift in Sources */,
+				B46D7DB3290A6A32009F43C3 /* Model.swift in Sources */,
+				B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
