@@ -12,11 +12,24 @@ class Plane: Node {
     var vertexBuffer: MTLBuffer?
     var indexBuffer: MTLBuffer?
     
-    private var vertices: [Float] = [  -1,  1, 0, // V0
-                                       -1, -1, 0, // V1
-                                        1, -1, 0, // v2
-                                        1,  1, 0  // v3
-                                    ]
+// [
+//     -1,  1, 0, // V0
+//     -1, -1, 0, // V1
+//      1, -1, 0, // v2
+//      1,  1, 0  // v3
+// ]
+    
+    var vertices: [Vertex] = [
+            Vertex(position: SIMD3<Float>(-1, 1, 0),
+                   color: SIMD4<Float>(1, 0, 0, 1)),
+            Vertex(position: SIMD3<Float>(-1, -1, 0),
+                   color: SIMD4<Float>(0, 1, 0, 1)),
+            Vertex(position: SIMD3<Float>(1, -1, 0),
+                   color: SIMD4<Float>(0, 0, 1, 1)),
+            Vertex(position: SIMD3<Float>(1, 1, 0),
+                   color: SIMD4<Float>(1, 0, 1, 1))
+    ]
+        
     
     private let indices: [UInt16] = [ 0, 1, 2,
                                       2, 3, 0
@@ -31,7 +44,8 @@ class Plane: Node {
     }
     
     private func buildBuffers(device: MTLDevice) {
-        vertexBuffer = device.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Float>.size, options: [])
+        // in structs .stride method more reliable that .size
+        vertexBuffer = device.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Vertex>.stride, options: [])
         indexBuffer = device.makeBuffer(bytes: indices, length: indices.count * MemoryLayout<UInt16>.size, options: [])
         
     }
