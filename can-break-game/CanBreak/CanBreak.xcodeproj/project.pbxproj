@@ -21,6 +21,7 @@
 		B46D7DB8290A85D7009F43C3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB7290A85D7009F43C3 /* Node.swift */; };
 		B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB9290A88E9009F43C3 /* Scene.swift */; };
 		B46D7DBC290A8976009F43C3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DBB290A8976009F43C3 /* GameScene.swift */; };
+		B46D7DC1290B2C22009F43C3 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DC0290B2C22009F43C3 /* Renderable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B46D7DB7290A85D7009F43C3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		B46D7DB9290A88E9009F43C3 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		B46D7DBB290A8976009F43C3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		B46D7DC0290B2C22009F43C3 /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				B46D7DA52907263B009F43C3 /* Colors.swift */,
 				B46D7DAC2909543A009F43C3 /* Constants.swift */,
 				B46D7DB2290A6A32009F43C3 /* Model.swift */,
+				B46D7DC0290B2C22009F43C3 /* Renderable.swift */,
 				B46D7DBD290A89DE009F43C3 /* Scenes */,
 				B46D7DB4290A6AA9009F43C3 /* Nodes */,
 				B46D7DA329072436009F43C3 /* MainViewController.swift */,
@@ -196,6 +199,7 @@
 				B46D7DAB29092720009F43C3 /* Renderer.swift in Sources */,
 				B46D7DA429072436009F43C3 /* MainViewController.swift in Sources */,
 				B46D7DB3290A6A32009F43C3 /* Model.swift in Sources */,
+				B46D7DC1290B2C22009F43C3 /* Renderable.swift in Sources */,
 				B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

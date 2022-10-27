@@ -36,5 +36,7 @@ vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]]) {
 
 // in fragment func prefix -> fragment, half4 -> smaller float
 fragment half4 fragment_shader(VertexOut vertexIn [[ stage_in ]]) {
-    return half4(vertexIn.color); // red color (r, g, b, a)
+    
+    float grayColor = (vertexIn.color.r + vertexIn.color.g + vertexIn.color.b) / 3;
+    return half4(grayColor, grayColor, grayColor, 1); // red color (r, g, b, a)
 }
