@@ -21,13 +21,20 @@ class Plane: Node {
     
     var vertices: [Vertex] = [
             Vertex(position: SIMD3<Float>(-1, 1, 0),
-                   color: SIMD4<Float>(1, 0, 0, 1)),
+                   color: SIMD4<Float>(1, 0, 0, 1),
+                   texture: SIMD2<Float>(0, 1)),
+            
             Vertex(position: SIMD3<Float>(-1, -1, 0),
-                   color: SIMD4<Float>(0, 1, 0, 1)),
+                   color: SIMD4<Float>(0, 1, 0, 1),
+                   texture: SIMD2<Float>(0, 0)),
+            
             Vertex(position: SIMD3<Float>(1, -1, 0),
-                   color: SIMD4<Float>(0, 0, 1, 1)),
+                   color: SIMD4<Float>(0, 0, 1, 1),
+                   texture: SIMD2<Float>(1, 0)),
+            
             Vertex(position: SIMD3<Float>(1, 1, 0),
-                   color: SIMD4<Float>(1, 0, 1, 1))
+                   color: SIMD4<Float>(1, 0, 1, 1),
+                   texture: SIMD2<Float>(1, 1)),
     ]
         
     
@@ -44,23 +51,41 @@ class Plane: Node {
     var vertexFunctionName: String = "vertex_shader"
     
     var vertexDescriptor: MTLVertexDescriptor {
-      let vertexDescriptor = MTLVertexDescriptor()
+        let vertexDescriptor = MTLVertexDescriptor()
       
-      vertexDescriptor.attributes[0].format = .float3
-      vertexDescriptor.attributes[0].offset = 0
-      vertexDescriptor.attributes[0].bufferIndex = 0
+        vertexDescriptor.attributes[0].format = .float3
+        vertexDescriptor.attributes[0].offset = 0
+        vertexDescriptor.attributes[0].bufferIndex = 0
       
-      vertexDescriptor.attributes[1].format = .float4
-      vertexDescriptor.attributes[1].offset = MemoryLayout<float3>.stride
-      vertexDescriptor.attributes[1].bufferIndex = 0
+        vertexDescriptor.attributes[1].format = .float4
+        vertexDescriptor.attributes[1].offset = MemoryLayout<SIMD3<Float>>.stride
+        vertexDescriptor.attributes[1].bufferIndex = 0
+        
+        vertexDescriptor.attributes[2].format = .float2
+        vertexDescriptor.attributes[2].offset = MemoryLayout<SIMD3<Float>>.stride + MemoryLayout<SIMD4<Float>>.stride
+        vertexDescriptor.attributes[1].bufferIndex = 0
+        
+        vertexDescriptor.layouts[0].stride = MemoryLayout<Vertex>.stride
       
-      vertexDescriptor.layouts[0].stride = MemoryLayout<Vertex>.stride
-      
-      return vertexDescriptor
+        return vertexDescriptor
     }
+    
+    // Texturable
+    var texture: MTLTexture?
     
     init (device: MTLDevice) {
         super.init()
+        buildBuffers(device: device)
+        pipelineState = buildPipelineState(device: device)
+    }
+    
+    init (device: MTLDevice, imageName: String) {
+        super.init()
+        if let texture = setTexture(device: device, imageName: imageName) {
+            self.texture = texture
+            fragmentFunctionName = "textured_fragment"
+        }
+        
         buildBuffers(device: device)
         pipelineState = buildPipelineState(device: device)
     }
@@ -84,6 +109,7 @@ class Plane: Node {
         commandEncoder.setRenderPipelineState(pipelineState)
         commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
         commandEncoder.setVertexBytes(&constants, length: MemoryLayout<Constants>.stride, index: 1)
+        commandEncoder.setFragmentTexture(texture, index: 0)
         
         commandEncoder.drawIndexedPrimitives(type: .triangle,
                                              indexCount: indices.count,
@@ -94,5 +120,5 @@ class Plane: Node {
     }
 }
 
-extension Plane: Renderable {
-}
+extension Plane: Renderable { }
+extension Plane: Texturable { }

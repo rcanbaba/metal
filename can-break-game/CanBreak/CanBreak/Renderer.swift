@@ -12,6 +12,7 @@ final class Renderer: NSObject {
     let device: MTLDevice
     let commandQueue: MTLCommandQueue?
     var scene: Scene?
+    var samplerState: MTLSamplerState?
     
     private var pipelineState: MTLRenderPipelineState?
     
@@ -19,6 +20,14 @@ final class Renderer: NSObject {
         self.device = device
         commandQueue = device.makeCommandQueue()
         super.init()
+        buildSamplerState()
+    }
+    
+    private func buildSamplerState() {
+        let descriptor = MTLSamplerDescriptor()
+        descriptor.minFilter = .linear
+        descriptor.magFilter = .linear
+        samplerState = device.makeSamplerState(descriptor: descriptor)
     }
     
 }
@@ -42,6 +51,9 @@ extension Renderer: MTKViewDelegate {
 
         // calls draw method 60 times per second
         let deltaTime = 1 / Float(view.preferredFramesPerSecond)
+        
+        commandEncoder.setFragmentSamplerState(samplerState, index: 0)
+        
         scene?.render(commandEncoder: commandEncoder, deltaTime: deltaTime)
         /// ----------------------------
         // finished encoding all the commands then sent the command buffer to GPU(device)
