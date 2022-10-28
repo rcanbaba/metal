@@ -73,12 +73,17 @@ class Plane: Node {
     // Texturable
     var texture: MTLTexture?
     
+    // Mask
+    
+    var maskTexture: MTLTexture?
+    
     init (device: MTLDevice) {
         super.init()
         buildBuffers(device: device)
         pipelineState = buildPipelineState(device: device)
     }
     
+    // + texture image
     init (device: MTLDevice, imageName: String) {
         super.init()
         if let texture = setTexture(device: device, imageName: imageName) {
@@ -90,11 +95,25 @@ class Plane: Node {
         pipelineState = buildPipelineState(device: device)
     }
     
+    // + mask image
+    init (device: MTLDevice, imageName: String, maskImageName: String) {
+        super.init()
+        buildBuffers(device: device)
+        if let texture = setTexture(device: device, imageName: imageName) {
+            self.texture = texture
+            fragmentFunctionName = "textured_fragment"
+        }
+        if let maskTexture = setTexture(device: device, imageName: maskImageName) {
+            self.maskTexture = maskTexture
+            fragmentFunctionName = "textured_mask_fragment"
+        }
+        pipelineState = buildPipelineState(device: device)
+    }
+    
     private func buildBuffers(device: MTLDevice) {
         // in structs .stride method more reliable that .size
         vertexBuffer = device.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Vertex>.stride, options: [])
         indexBuffer = device.makeBuffer(bytes: indices, length: indices.count * MemoryLayout<UInt16>.size, options: [])
-        
     }
     
     override func render(commandEncoder: MTLRenderCommandEncoder, deltaTime: Float) {
@@ -110,6 +129,7 @@ class Plane: Node {
         commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
         commandEncoder.setVertexBytes(&constants, length: MemoryLayout<Constants>.stride, index: 1)
         commandEncoder.setFragmentTexture(texture, index: 0)
+        commandEncoder.setFragmentTexture(maskTexture, index: 1)
         
         commandEncoder.drawIndexedPrimitives(type: .triangle,
                                              indexCount: indices.count,
