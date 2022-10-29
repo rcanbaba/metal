@@ -45,7 +45,7 @@ class Plane: Node {
     private var constants = Constants()
     private var time: Float = 0
     
-    private var modelConstants = ModelConstants()
+    var modelConstants = ModelConstants()
     
     // Renderable
     var pipelineState: MTLRenderPipelineState!
@@ -117,24 +117,13 @@ class Plane: Node {
         vertexBuffer = device.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Vertex>.stride, options: [])
         indexBuffer = device.makeBuffer(bytes: indices, length: indices.count * MemoryLayout<UInt16>.size, options: [])
     }
-    
-    override func render(commandEncoder: MTLRenderCommandEncoder, deltaTime: Float) {
-        super.render(commandEncoder: commandEncoder, deltaTime: deltaTime)
-        
+}
+
+extension Plane: Renderable {
+    func doRender(commandEncoder: MTLRenderCommandEncoder, modelViewMatrix: matrix_float4x4) {
         guard let indexBuffer = indexBuffer else {return}
         
-        time += deltaTime
-        let animateBy = abs(sin(time) / 2 + 0.5)
-        
-        let rotationMatrix = matrix_float4x4(rotationAngle: animateBy, x: 0, y: 0, z: 1)
-         
-        let viewMatrix = matrix_float4x4(translationX: 0, y: 0, z: -4)
-        
-        let modelViewMatrix = matrix_multiply(rotationMatrix, viewMatrix)
-        modelConstants.modelViewMatrix = modelViewMatrix
-        
         let aspect = Float(750.0 / 1334.0)
-        
         // 65 -> field of view
         let projectionMatrix = matrix_float4x4(projectionFov: radians(fromDegrees: 65), aspect: aspect, nearZ: 0.1, farZ: 100)
         
@@ -151,9 +140,6 @@ class Plane: Node {
                                              indexType: .uint16,
                                              indexBuffer: indexBuffer,
                                              indexBufferOffset: 0)
-
     }
 }
-
-extension Plane: Renderable { }
 extension Plane: Texturable { }

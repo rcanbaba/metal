@@ -12,6 +12,8 @@ protocol Renderable {
     var vertexFunctionName: String { get }
     var fragmentFunctionName: String { get }
     var vertexDescriptor: MTLVertexDescriptor { get }
+    var modelConstants: ModelConstants { get set }
+    func doRender(commandEncoder: MTLRenderCommandEncoder, modelViewMatrix: matrix_float4x4)
 }
 
 extension Renderable {
