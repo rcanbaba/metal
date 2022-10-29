@@ -21,6 +21,12 @@ class GameScene: Scene {
         quad.position.z = -3
         quad.scale = float3(repeating: 3)
         
+        camera.position.y = -1
+        camera.position.x = 1
+        camera.position.z = -6
+        camera.rotation.x = radians(fromDegrees: -45)
+        camera.rotation.y = radians(fromDegrees: -45)
+        
 //        let quad2 = Plane(device: device, imageName: "picture.png")
 //        quad2.scale = SIMD3<Float>(repeating: 0.5)
 //        quad2.position.y = 1.5

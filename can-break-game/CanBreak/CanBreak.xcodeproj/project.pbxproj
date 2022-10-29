@@ -29,6 +29,7 @@
 		B46D7DCD290D0FA3009F43C3 /* MatrixMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DCC290D0FA3009F43C3 /* MatrixMath.swift */; };
 		B46D7DD3290DCAEA009F43C3 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DD2290DCAEA009F43C3 /* Primitive.swift */; };
 		B46D7DD5290DCDF1009F43C3 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DD4290DCDF1009F43C3 /* Cube.swift */; };
+		B46D7DD7290DD74F009F43C3 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DD6290DD74F009F43C3 /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B46D7DCC290D0FA3009F43C3 /* MatrixMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixMath.swift; sourceTree = "<group>"; };
 		B46D7DD2290DCAEA009F43C3 /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
 		B46D7DD4290DCDF1009F43C3 /* Cube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
+		B46D7DD6290DD74F009F43C3 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				B46D7DD2290DCAEA009F43C3 /* Primitive.swift */,
 				B46D7DC0290B2C22009F43C3 /* Renderable.swift */,
 				B46D7DCA290BFF9B009F43C3 /* Texturable.swift */,
+				B46D7DD6290DD74F009F43C3 /* Camera.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				B46D7DB6290A6AC7009F43C3 /* Plane.swift in Sources */,
 				B46D7DA62907263B009F43C3 /* Colors.swift in Sources */,
 				B46D7D92290722B8009F43C3 /* SceneDelegate.swift in Sources */,
+				B46D7DD7290DD74F009F43C3 /* Camera.swift in Sources */,
 				B46D7DA929091907009F43C3 /* Shader.metal in Sources */,
 				B46D7DBC290A8976009F43C3 /* GameScene.swift in Sources */,
 				B46D7DAD2909543A009F43C3 /* Constants.swift in Sources */,
