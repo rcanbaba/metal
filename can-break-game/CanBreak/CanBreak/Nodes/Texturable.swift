@@ -20,9 +20,9 @@ extension Texturable {
         let textureLoaderOptions: [MTKTextureLoader.Option: NSObject]
         
         // TODO: learn how to set latest ios versions textureLoaderOptions
-        //   let origin = NSString(string: MTKTextureLoader.Origin.bottomLeft)
+        let origin = NSString(string: MTKTextureLoader.Origin.bottomLeft.rawValue)
         
-        textureLoaderOptions = [:]
+        textureLoaderOptions = [MTKTextureLoader.Option.origin: origin]
         if let textureURL = Bundle.main.url(forResource: imageName, withExtension: nil) {
             do {
                 texture = try textureLoader.newTexture(URL: textureURL, options: textureLoaderOptions)
