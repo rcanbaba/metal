@@ -28,6 +28,8 @@ class MainViewController: UIViewController {
             fatalError("Device not created! Run on a physical device.")
         }
         metalView.clearColor = Colors.background
+        // Do this settings, there is a bug if you dont set
+        metalView.depthStencilPixelFormat = .depth32Float
         renderer = Renderer(device: device)
         renderer?.scene = GameScene(device: device, size: view.bounds.size)
         metalView.delegate = renderer

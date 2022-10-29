@@ -13,6 +13,7 @@ final class Renderer: NSObject {
     let commandQueue: MTLCommandQueue?
     var scene: Scene?
     var samplerState: MTLSamplerState?
+    var depthStencilState: MTLDepthStencilState?
     
     private var pipelineState: MTLRenderPipelineState?
     
@@ -21,6 +22,7 @@ final class Renderer: NSObject {
         commandQueue = device.makeCommandQueue()
         super.init()
         buildSamplerState()
+        buildDepthStencilState()
     }
     
     private func buildSamplerState() {
@@ -28,6 +30,13 @@ final class Renderer: NSObject {
         descriptor.minFilter = .linear
         descriptor.magFilter = .linear
         samplerState = device.makeSamplerState(descriptor: descriptor)
+    }
+    
+    private func buildDepthStencilState() {
+        let depthStencilDescriptor = MTLDepthStencilDescriptor()
+        depthStencilDescriptor.depthCompareFunction = .less
+        depthStencilDescriptor.isDepthWriteEnabled = true
+        depthStencilState = device.makeDepthStencilState(descriptor: depthStencilDescriptor)
     }
     
 }
@@ -53,6 +62,7 @@ extension Renderer: MTKViewDelegate {
         let deltaTime = 1 / Float(view.preferredFramesPerSecond)
         
         commandEncoder.setFragmentSamplerState(samplerState, index: 0)
+        commandEncoder.setDepthStencilState(depthStencilState)
         
         scene?.render(commandEncoder: commandEncoder, deltaTime: deltaTime)
         /// ----------------------------

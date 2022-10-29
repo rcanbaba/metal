@@ -27,6 +27,8 @@
 		B46D7DC9290BFF57009F43C3 /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = B46D7DC6290BFF57009F43C3 /* picture.png */; };
 		B46D7DCB290BFF9B009F43C3 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DCA290BFF9B009F43C3 /* Texturable.swift */; };
 		B46D7DCD290D0FA3009F43C3 /* MatrixMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DCC290D0FA3009F43C3 /* MatrixMath.swift */; };
+		B46D7DD3290DCAEA009F43C3 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DD2290DCAEA009F43C3 /* Primitive.swift */; };
+		B46D7DD5290DCDF1009F43C3 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DD4290DCDF1009F43C3 /* Cube.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		B46D7DC6290BFF57009F43C3 /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
 		B46D7DCA290BFF9B009F43C3 /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		B46D7DCC290D0FA3009F43C3 /* MatrixMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixMath.swift; sourceTree = "<group>"; };
+		B46D7DD2290DCAEA009F43C3 /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
+		B46D7DD4290DCDF1009F43C3 /* Cube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 			children = (
 				B46D7DB7290A85D7009F43C3 /* Node.swift */,
 				B46D7DB5290A6AC7009F43C3 /* Plane.swift */,
+				B46D7DD4290DCDF1009F43C3 /* Cube.swift */,
+				B46D7DD2290DCAEA009F43C3 /* Primitive.swift */,
 				B46D7DC0290B2C22009F43C3 /* Renderable.swift */,
 				B46D7DCA290BFF9B009F43C3 /* Texturable.swift */,
 			);
@@ -225,6 +231,7 @@
 				B46D7D90290722B8009F43C3 /* AppDelegate.swift in Sources */,
 				B46D7DCB290BFF9B009F43C3 /* Texturable.swift in Sources */,
 				B46D7DB8290A85D7009F43C3 /* Node.swift in Sources */,
+				B46D7DD3290DCAEA009F43C3 /* Primitive.swift in Sources */,
 				B46D7DCD290D0FA3009F43C3 /* MatrixMath.swift in Sources */,
 				B46D7DB6290A6AC7009F43C3 /* Plane.swift in Sources */,
 				B46D7DA62907263B009F43C3 /* Colors.swift in Sources */,
@@ -236,6 +243,7 @@
 				B46D7DA429072436009F43C3 /* MainViewController.swift in Sources */,
 				B46D7DB3290A6A32009F43C3 /* Model.swift in Sources */,
 				B46D7DC1290B2C22009F43C3 /* Renderable.swift in Sources */,
+				B46D7DD5290DCDF1009F43C3 /* Cube.swift in Sources */,
 				B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
