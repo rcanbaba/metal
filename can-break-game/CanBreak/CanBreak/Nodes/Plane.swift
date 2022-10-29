@@ -45,6 +45,8 @@ class Plane: Node {
     private var constants = Constants()
     private var time: Float = 0
     
+    private var modelConstants = ModelConstants()
+    
     // Renderable
     var pipelineState: MTLRenderPipelineState!
     var fragmentFunctionName: String = "fragment_shader"
@@ -123,11 +125,24 @@ class Plane: Node {
         
         time += deltaTime
         let animateBy = abs(sin(time) / 2 + 0.5)
-        constants.animatedBy = animateBy
+        
+        let rotationMatrix = matrix_float4x4(rotationAngle: animateBy, x: 0, y: 0, z: 1)
+         
+        let viewMatrix = matrix_float4x4(translationX: 0, y: 0, z: -4)
+        
+        let modelViewMatrix = matrix_multiply(rotationMatrix, viewMatrix)
+        modelConstants.modelViewMatrix = modelViewMatrix
+        
+        let aspect = Float(750.0 / 1334.0)
+        
+        // 65 -> field of view
+        let projectionMatrix = matrix_float4x4(projectionFov: radians(fromDegrees: 65), aspect: aspect, nearZ: 0.1, farZ: 100)
+        
+        modelConstants.modelViewMatrix = matrix_multiply(projectionMatrix, modelViewMatrix)
         
         commandEncoder.setRenderPipelineState(pipelineState)
         commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        commandEncoder.setVertexBytes(&constants, length: MemoryLayout<Constants>.stride, index: 1)
+        commandEncoder.setVertexBytes(&modelConstants, length: MemoryLayout<ModelConstants>.stride, index: 1)
         commandEncoder.setFragmentTexture(texture, index: 0)
         commandEncoder.setFragmentTexture(maskTexture, index: 1)
         
