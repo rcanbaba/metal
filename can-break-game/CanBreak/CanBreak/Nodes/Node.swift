@@ -13,6 +13,7 @@ class Node {
     var position = SIMD3<Float>(repeating: 0)
     var rotation = SIMD3<Float>(repeating: 0)
     var scale = SIMD3<Float>(repeating: 1)
+    var materialColor = SIMD4<Float>(repeating: 1)
     
     var modelMatrix: matrix_float4x4 {
         // set position

@@ -10,6 +10,7 @@ using namespace metal;
 
 struct ModelConstants {
     float4x4 modelViewMatrix;
+    float4 materialColor;
 };
 
 struct VertexIn {
@@ -22,6 +23,7 @@ struct VertexOut {
     float4 position [[ position ]];
     float4 color;
     float2 textureCoordinates;
+    float4 materialColor;
 };
 
 struct SceneConstants {
@@ -42,6 +44,7 @@ vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]],
     
     vertexOut.color = vertexIn.color;
     vertexOut.textureCoordinates = vertexIn.textureCoordinates;
+    vertexOut.materialColor = modelConstants.materialColor;
     
     return vertexOut;
 }
@@ -56,6 +59,7 @@ fragment half4 textured_fragment(VertexOut vertexIn [[ stage_in ]],
                                  texture2d<float> texture [[ texture(0) ]]) {
     
     float4 color = texture.sample(sampler2d, vertexIn.textureCoordinates);
+    color = color * vertexIn.materialColor;
     // if the color alpha = 0, discard there
     if (color.a == 0.0) {
         discard_fragment();
@@ -76,4 +80,8 @@ fragment half4 textured_mask_fragment(VertexOut vertexIn [[ stage_in ]],
         discard_fragment();
     }
     return half4(color.r, color.g, color.b, 1);
+}
+
+fragment half4 fragment_color(VertexOut vertexIn [[ stage_in ]]) {
+    return  half4(vertexIn.materialColor);
 }

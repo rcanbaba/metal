@@ -37,6 +37,8 @@
 		B4C9AE3F290E7E2800A51F23 /* texturedCube.blend in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE39290E7E2800A51F23 /* texturedCube.blend */; };
 		B4C9AE40290E7E2800A51F23 /* texturedCube.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE3A290E7E2800A51F23 /* texturedCube.png */; };
 		B4C9AE41290E7E2800A51F23 /* texturedCube.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE3B290E7E2800A51F23 /* texturedCube.obj */; };
+		B4C9AE43290E82CD00A51F23 /* sun.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE42290E82CD00A51F23 /* sun.obj */; };
+		B4C9AE45290E830900A51F23 /* LandscapeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE44290E830900A51F23 /* LandscapeScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		B4C9AE39290E7E2800A51F23 /* texturedCube.blend */ = {isa = PBXFileReference; lastKnownFileType = file; path = texturedCube.blend; sourceTree = "<group>"; };
 		B4C9AE3A290E7E2800A51F23 /* texturedCube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texturedCube.png; sourceTree = "<group>"; };
 		B4C9AE3B290E7E2800A51F23 /* texturedCube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = texturedCube.obj; sourceTree = "<group>"; };
+		B4C9AE42290E82CD00A51F23 /* sun.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sun.obj; sourceTree = "<group>"; };
+		B4C9AE44290E830900A51F23 /* LandscapeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 			children = (
 				B46D7DBB290A8976009F43C3 /* GameScene.swift */,
 				B46D7DB9290A88E9009F43C3 /* Scene.swift */,
+				B4C9AE44290E830900A51F23 /* LandscapeScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 		B4C9AE32290E7E2800A51F23 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B4C9AE42290E82CD00A51F23 /* sun.obj */,
 				B4C9AE33290E7E2800A51F23 /* mushroom */,
 				B4C9AE36290E7E2800A51F23 /* humanFigure */,
 				B4C9AE38290E7E2800A51F23 /* texturedCube */,
@@ -275,6 +281,7 @@
 				B4C9AE3C290E7E2800A51F23 /* mushroom.png in Resources */,
 				B4C9AE3F290E7E2800A51F23 /* texturedCube.blend in Resources */,
 				B46D7DC9290BFF57009F43C3 /* picture.png in Resources */,
+				B4C9AE43290E82CD00A51F23 /* sun.obj in Resources */,
 				B4C9AE3E290E7E2800A51F23 /* humanFigure.obj in Resources */,
 				B46D7D9C290722BB009F43C3 /* LaunchScreen.storyboard in Resources */,
 				B46D7DC7290BFF57009F43C3 /* picture-frame-mask.png in Resources */,
@@ -290,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C9AE45290E830900A51F23 /* LandscapeScene.swift in Sources */,
 				B46D7D90290722B8009F43C3 /* AppDelegate.swift in Sources */,
 				B46D7DCB290BFF9B009F43C3 /* Texturable.swift in Sources */,
 				B46D7DB8290A85D7009F43C3 /* Node.swift in Sources */,
