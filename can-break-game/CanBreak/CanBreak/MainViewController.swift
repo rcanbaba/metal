@@ -27,13 +27,13 @@ class MainViewController: UIViewController {
         guard let device = metalView.device else {
             fatalError("Device not created! Run on a physical device.")
         }
-        metalView.clearColor = Colors.skyBlue
+        metalView.clearColor = Colors.background
         // Do this settings, there is a bug if you dont set
         metalView.depthStencilPixelFormat = .depth32Float
         renderer = Renderer(device: device)
         
         //renderer?.scene = GameScene(device: device, size: view.bounds.size)
-        renderer?.scene = LandscapeScene(device: device, size: view.bounds.size)
+        renderer?.scene = LightingScene(device: device, size: view.bounds.size)
         metalView.delegate = renderer
     }
 
@@ -47,4 +47,21 @@ class MainViewController: UIViewController {
             metalView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        renderer?.scene?.touchesBegan(view, touches: touches, with: event)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        renderer?.scene?.touchesMoved(view, touches: touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        renderer?.scene?.touchesEnded(view, touches: touches, with: event)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        renderer?.scene?.touchesCancelled(view, touches: touches, with: event)
+    }
 }
+

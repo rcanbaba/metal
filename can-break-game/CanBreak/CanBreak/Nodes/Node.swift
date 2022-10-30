@@ -14,6 +14,8 @@ class Node {
     var rotation = SIMD3<Float>(repeating: 0)
     var scale = SIMD3<Float>(repeating: 1)
     var materialColor = SIMD4<Float>(repeating: 1)
+    var specularIntensity: Float = 1
+    var shininess: Float = 1
     
     var modelMatrix: matrix_float4x4 {
         // set position

@@ -52,7 +52,7 @@ class Model: Node {
         let imageName = modelName + ".png"
         if let texture = setTexture(device: device, imageName: imageName) {
             self.texture = texture
-            fragmentFunctionName = "textured_fragment"
+            fragmentFunctionName = "lit_textured_fragment"
         }
         
         pipelineState = buildPipelineState(device: device)
@@ -95,6 +95,10 @@ extension Model: Renderable {
     func doRender(commandEncoder: MTLRenderCommandEncoder, modelViewMatrix: matrix_float4x4) {
         modelConstants.modelViewMatrix = modelViewMatrix
         modelConstants.materialColor = materialColor
+        modelConstants.normalMatrix = modelViewMatrix.upperLeft3x3()
+        modelConstants.shininess = shininess
+        modelConstants.specularIntensity = specularIntensity
+        
         commandEncoder.setVertexBytes(&modelConstants, length: MemoryLayout<ModelConstants>.stride, index: 1)
         
         if texture != nil {

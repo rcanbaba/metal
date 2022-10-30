@@ -11,12 +11,16 @@ using namespace metal;
 struct ModelConstants {
     float4x4 modelViewMatrix;
     float4 materialColor;
+    float3x3 normalMatrix;
+    float specularIntensity;
+    float shininess;
 };
 
 struct VertexIn {
     float4 position [[ attribute(0) ]];
     float4 color [[ attribute(1) ]];
     float2 textureCoordinates [[ attribute(2) ]];
+    float3 normal [[ attribute(3) ]];
 };
 
 struct VertexOut {
@@ -24,6 +28,17 @@ struct VertexOut {
     float4 color;
     float2 textureCoordinates;
     float4 materialColor;
+    float3 normal;
+    float specularIntensity;
+    float shininess;
+    float3 eyePosition;
+};
+
+struct Light {
+    float3 color;
+    float ambientIntensity;
+    float diffuseIntensity;
+    float3 direction;
 };
 
 struct SceneConstants {
@@ -45,6 +60,9 @@ vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]],
     vertexOut.color = vertexIn.color;
     vertexOut.textureCoordinates = vertexIn.textureCoordinates;
     vertexOut.materialColor = modelConstants.materialColor;
+    
+    vertexOut.normal = modelConstants.normalMatrix * vertexIn.normal;
+    vertexOut.eyePosition = (modelConstants.modelViewMatrix * vertexIn.position).xyz;
     
     return vertexOut;
 }
@@ -102,4 +120,36 @@ fragment half4 textured_mask_fragment(VertexOut vertexIn [[ stage_in ]],
 
 fragment half4 fragment_color(VertexOut vertexIn [[ stage_in ]]) {
     return  half4(vertexIn.materialColor);
+}
+
+fragment half4 lit_textured_fragment(VertexOut vertexIn [[ stage_in ]],
+                                     sampler sampler2d [[ sampler(0) ]],
+                                     constant Light &light [[ buffer(3) ]],
+                                     texture2d<float> texture [[ texture(0) ]]) {
+    
+    float4 color = texture.sample(sampler2d, vertexIn.textureCoordinates);
+    color = color * vertexIn.materialColor;
+    
+    //Ambient
+    float3 ambientColor = light.color * light.ambientIntensity;
+    
+    //Diffuse lighting
+    float3 normal = normalize(vertexIn.normal);
+    // saturate func: clamps the value between 0..1
+    float diffuseFactor = saturate(-dot(normal, light.direction));
+    float3 diffuseColor = light.color * light.diffuseIntensity * diffuseFactor;
+    
+    // Specular
+    float3 eye = normalize(vertexIn.eyePosition);
+    float3 reflection = reflect(light.direction, normal);
+    float3 specularFactor = pow(saturate(-dot(reflection, eye)), vertexIn.shininess);
+    float3 specularColor = light.color * vertexIn.specularIntensity * specularFactor;
+    
+    color = color * float4((ambientColor + diffuseColor + specularColor), 1);
+    
+    // if the color alpha = 0, discard there
+    if (color.a == 0.0) {
+        discard_fragment();
+    }
+    return half4(color.r, color.g, color.b, 1);
 }

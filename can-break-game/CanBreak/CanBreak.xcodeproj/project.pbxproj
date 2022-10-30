@@ -43,6 +43,7 @@
 		B4C9AE49290E9C6600A51F23 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE48290E9C6600A51F23 /* Instance.swift */; };
 		B4C9AE4B290EA20400A51F23 /* InstanceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */; };
 		B4C9AE4D290EB55D00A51F23 /* grass.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE4C290EB55D00A51F23 /* grass.obj */; };
+		B4C9AE4F290ECD4E00A51F23 /* LightingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE4E290ECD4E00A51F23 /* LightingScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		B4C9AE48290E9C6600A51F23 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceScene.swift; sourceTree = "<group>"; };
 		B4C9AE4C290EB55D00A51F23 /* grass.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grass.obj; sourceTree = "<group>"; };
+		B4C9AE4E290ECD4E00A51F23 /* LightingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightingScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,11 +164,12 @@
 		B46D7DBD290A89DE009F43C3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B46D7DBB290A8976009F43C3 /* GameScene.swift */,
 				B46D7DB9290A88E9009F43C3 /* Scene.swift */,
+				B46D7DBB290A8976009F43C3 /* GameScene.swift */,
 				B4C9AE44290E830900A51F23 /* LandscapeScene.swift */,
 				B4C9AE46290E926F00A51F23 /* CrowdScene.swift */,
 				B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */,
+				B4C9AE4E290ECD4E00A51F23 /* LightingScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				B46D7DAD2909543A009F43C3 /* Constants.swift in Sources */,
 				B46D7DAB29092720009F43C3 /* Renderer.swift in Sources */,
 				B46D7DA429072436009F43C3 /* MainViewController.swift in Sources */,
+				B4C9AE4F290ECD4E00A51F23 /* LightingScene.swift in Sources */,
 				B46D7DB3290A6A32009F43C3 /* Types.swift in Sources */,
 				B46D7DC1290B2C22009F43C3 /* Renderable.swift in Sources */,
 				B4C9AE31290E74DC00A51F23 /* Model.swift in Sources */,
