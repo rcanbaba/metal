@@ -39,6 +39,9 @@
 		B4C9AE41290E7E2800A51F23 /* texturedCube.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE3B290E7E2800A51F23 /* texturedCube.obj */; };
 		B4C9AE43290E82CD00A51F23 /* sun.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE42290E82CD00A51F23 /* sun.obj */; };
 		B4C9AE45290E830900A51F23 /* LandscapeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE44290E830900A51F23 /* LandscapeScene.swift */; };
+		B4C9AE47290E926F00A51F23 /* CrowdScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE46290E926F00A51F23 /* CrowdScene.swift */; };
+		B4C9AE49290E9C6600A51F23 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE48290E9C6600A51F23 /* Instance.swift */; };
+		B4C9AE4B290EA20400A51F23 /* InstanceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		B4C9AE3B290E7E2800A51F23 /* texturedCube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = texturedCube.obj; sourceTree = "<group>"; };
 		B4C9AE42290E82CD00A51F23 /* sun.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sun.obj; sourceTree = "<group>"; };
 		B4C9AE44290E830900A51F23 /* LandscapeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeScene.swift; sourceTree = "<group>"; };
+		B4C9AE46290E926F00A51F23 /* CrowdScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowdScene.swift; sourceTree = "<group>"; };
+		B4C9AE48290E9C6600A51F23 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
+		B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,9 @@
 		B46D7D8E290722B8009F43C3 /* CanBreak */ = {
 			isa = PBXGroup;
 			children = (
+				B46D7DA329072436009F43C3 /* MainViewController.swift */,
+				B46D7DA829091907009F43C3 /* Shader.metal */,
+				B46D7DAA29092720009F43C3 /* Renderer.swift */,
 				B46D7DA72907267F009F43C3 /* Core */,
 				B46D7DA52907263B009F43C3 /* Colors.swift */,
 				B46D7DAC2909543A009F43C3 /* Constants.swift */,
@@ -115,9 +124,6 @@
 				B46D7DCC290D0FA3009F43C3 /* MatrixMath.swift */,
 				B46D7DBD290A89DE009F43C3 /* Scenes */,
 				B46D7DB4290A6AA9009F43C3 /* Nodes */,
-				B46D7DA329072436009F43C3 /* MainViewController.swift */,
-				B46D7DA829091907009F43C3 /* Shader.metal */,
-				B46D7DAA29092720009F43C3 /* Renderer.swift */,
 				B46D7DC2290BFF57009F43C3 /* Resources */,
 				B46D7D98290722BB009F43C3 /* Assets.xcassets */,
 				B46D7D9D290722BB009F43C3 /* Info.plist */,
@@ -143,6 +149,7 @@
 				B46D7DD4290DCDF1009F43C3 /* Cube.swift */,
 				B46D7DD2290DCAEA009F43C3 /* Primitive.swift */,
 				B4C9AE30290E74DC00A51F23 /* Model.swift */,
+				B4C9AE48290E9C6600A51F23 /* Instance.swift */,
 				B46D7DD6290DD74F009F43C3 /* Camera.swift */,
 				B46D7DC0290B2C22009F43C3 /* Renderable.swift */,
 				B46D7DCA290BFF9B009F43C3 /* Texturable.swift */,
@@ -156,6 +163,8 @@
 				B46D7DBB290A8976009F43C3 /* GameScene.swift */,
 				B46D7DB9290A88E9009F43C3 /* Scene.swift */,
 				B4C9AE44290E830900A51F23 /* LandscapeScene.swift */,
+				B4C9AE46290E926F00A51F23 /* CrowdScene.swift */,
+				B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -297,9 +306,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C9AE49290E9C6600A51F23 /* Instance.swift in Sources */,
 				B4C9AE45290E830900A51F23 /* LandscapeScene.swift in Sources */,
 				B46D7D90290722B8009F43C3 /* AppDelegate.swift in Sources */,
 				B46D7DCB290BFF9B009F43C3 /* Texturable.swift in Sources */,
+				B4C9AE4B290EA20400A51F23 /* InstanceScene.swift in Sources */,
 				B46D7DB8290A85D7009F43C3 /* Node.swift in Sources */,
 				B46D7DD3290DCAEA009F43C3 /* Primitive.swift in Sources */,
 				B46D7DCD290D0FA3009F43C3 /* MatrixMath.swift in Sources */,
@@ -309,6 +320,7 @@
 				B46D7DD7290DD74F009F43C3 /* Camera.swift in Sources */,
 				B46D7DA929091907009F43C3 /* Shader.metal in Sources */,
 				B46D7DBC290A8976009F43C3 /* GameScene.swift in Sources */,
+				B4C9AE47290E926F00A51F23 /* CrowdScene.swift in Sources */,
 				B46D7DAD2909543A009F43C3 /* Constants.swift in Sources */,
 				B46D7DAB29092720009F43C3 /* Renderer.swift in Sources */,
 				B46D7DA429072436009F43C3 /* MainViewController.swift in Sources */,
