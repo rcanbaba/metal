@@ -52,7 +52,7 @@ class Model: Node {
         let imageName = modelName + ".png"
         if let texture = setTexture(device: device, imageName: imageName) {
             self.texture = texture
-            fragmentFunctionName = "textured_fragment"
+            fragmentFunctionName = "lit_textured_fragment"
         }
         
         pipelineState = buildPipelineState(device: device)

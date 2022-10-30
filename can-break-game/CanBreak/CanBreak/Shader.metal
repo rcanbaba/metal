@@ -26,6 +26,11 @@ struct VertexOut {
     float4 materialColor;
 };
 
+struct Light {
+    float3 color;
+    float ambientIntensity;
+};
+
 struct SceneConstants {
     float4x4 projectionMatrix;
 };
@@ -102,4 +107,24 @@ fragment half4 textured_mask_fragment(VertexOut vertexIn [[ stage_in ]],
 
 fragment half4 fragment_color(VertexOut vertexIn [[ stage_in ]]) {
     return  half4(vertexIn.materialColor);
+}
+
+fragment half4 lit_textured_fragment(VertexOut vertexIn [[ stage_in ]],
+                                     sampler sampler2d [[ sampler(0) ]],
+                                     constant Light &light [[ buffer(3) ]],
+                                     texture2d<float> texture [[ texture(0) ]]) {
+    
+    float4 color = texture.sample(sampler2d, vertexIn.textureCoordinates);
+    color = color * vertexIn.materialColor;
+    
+    //Ambient
+    float3 ambientColor = light.color * light.ambientIntensity;
+    
+    color = color * float4(ambientColor, 1);
+    
+    // if the color alpha = 0, discard there
+    if (color.a == 0.0) {
+        discard_fragment();
+    }
+    return half4(color.r, color.g, color.b, 1);
 }
