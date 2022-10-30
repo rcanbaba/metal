@@ -17,6 +17,8 @@ class LightingScene: Scene {
         
         super.init(device: device, size: size)
         
+        mushroom.specularIntensity = 0.2
+        mushroom.shininess = 2.0
         mushroom.position.y = -1
         add(childNode: mushroom)
         
