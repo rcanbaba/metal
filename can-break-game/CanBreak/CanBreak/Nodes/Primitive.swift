@@ -21,12 +21,12 @@ class Primitive: Node {
     private var constants = Constants()
     private var time: Float = 0
     
-    var modelConstants = ModelConstants()
     
     // Renderable
     var pipelineState: MTLRenderPipelineState!
     var fragmentFunctionName: String = "fragment_shader"
     var vertexFunctionName: String = "vertex_shader"
+    var modelConstants = ModelConstants()
     
     var vertexDescriptor: MTLVertexDescriptor {
         let vertexDescriptor = MTLVertexDescriptor()

@@ -16,7 +16,7 @@
 		B46D7DA929091907009F43C3 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DA829091907009F43C3 /* Shader.metal */; };
 		B46D7DAB29092720009F43C3 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DAA29092720009F43C3 /* Renderer.swift */; };
 		B46D7DAD2909543A009F43C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DAC2909543A009F43C3 /* Constants.swift */; };
-		B46D7DB3290A6A32009F43C3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB2290A6A32009F43C3 /* Model.swift */; };
+		B46D7DB3290A6A32009F43C3 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB2290A6A32009F43C3 /* Types.swift */; };
 		B46D7DB6290A6AC7009F43C3 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB5290A6AC7009F43C3 /* Plane.swift */; };
 		B46D7DB8290A85D7009F43C3 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB7290A85D7009F43C3 /* Node.swift */; };
 		B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DB9290A88E9009F43C3 /* Scene.swift */; };
@@ -30,6 +30,13 @@
 		B46D7DD3290DCAEA009F43C3 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DD2290DCAEA009F43C3 /* Primitive.swift */; };
 		B46D7DD5290DCDF1009F43C3 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DD4290DCDF1009F43C3 /* Cube.swift */; };
 		B46D7DD7290DD74F009F43C3 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7DD6290DD74F009F43C3 /* Camera.swift */; };
+		B4C9AE31290E74DC00A51F23 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE30290E74DC00A51F23 /* Model.swift */; };
+		B4C9AE3C290E7E2800A51F23 /* mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE34290E7E2800A51F23 /* mushroom.png */; };
+		B4C9AE3D290E7E2800A51F23 /* mushroom.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE35290E7E2800A51F23 /* mushroom.obj */; };
+		B4C9AE3E290E7E2800A51F23 /* humanFigure.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE37290E7E2800A51F23 /* humanFigure.obj */; };
+		B4C9AE3F290E7E2800A51F23 /* texturedCube.blend in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE39290E7E2800A51F23 /* texturedCube.blend */; };
+		B4C9AE40290E7E2800A51F23 /* texturedCube.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE3A290E7E2800A51F23 /* texturedCube.png */; };
+		B4C9AE41290E7E2800A51F23 /* texturedCube.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE3B290E7E2800A51F23 /* texturedCube.obj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +51,7 @@
 		B46D7DA829091907009F43C3 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 		B46D7DAA29092720009F43C3 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		B46D7DAC2909543A009F43C3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B46D7DB2290A6A32009F43C3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B46D7DB2290A6A32009F43C3 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		B46D7DB5290A6AC7009F43C3 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		B46D7DB7290A85D7009F43C3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		B46D7DB9290A88E9009F43C3 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -58,6 +65,13 @@
 		B46D7DD2290DCAEA009F43C3 /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
 		B46D7DD4290DCDF1009F43C3 /* Cube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		B46D7DD6290DD74F009F43C3 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		B4C9AE30290E74DC00A51F23 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B4C9AE34290E7E2800A51F23 /* mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mushroom.png; sourceTree = "<group>"; };
+		B4C9AE35290E7E2800A51F23 /* mushroom.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mushroom.obj; sourceTree = "<group>"; };
+		B4C9AE37290E7E2800A51F23 /* humanFigure.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = humanFigure.obj; sourceTree = "<group>"; };
+		B4C9AE39290E7E2800A51F23 /* texturedCube.blend */ = {isa = PBXFileReference; lastKnownFileType = file; path = texturedCube.blend; sourceTree = "<group>"; };
+		B4C9AE3A290E7E2800A51F23 /* texturedCube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texturedCube.png; sourceTree = "<group>"; };
+		B4C9AE3B290E7E2800A51F23 /* texturedCube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = texturedCube.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +107,7 @@
 				B46D7DA72907267F009F43C3 /* Core */,
 				B46D7DA52907263B009F43C3 /* Colors.swift */,
 				B46D7DAC2909543A009F43C3 /* Constants.swift */,
-				B46D7DB2290A6A32009F43C3 /* Model.swift */,
+				B46D7DB2290A6A32009F43C3 /* Types.swift */,
 				B46D7DCC290D0FA3009F43C3 /* MatrixMath.swift */,
 				B46D7DBD290A89DE009F43C3 /* Scenes */,
 				B46D7DB4290A6AA9009F43C3 /* Nodes */,
@@ -124,9 +138,10 @@
 				B46D7DB5290A6AC7009F43C3 /* Plane.swift */,
 				B46D7DD4290DCDF1009F43C3 /* Cube.swift */,
 				B46D7DD2290DCAEA009F43C3 /* Primitive.swift */,
+				B4C9AE30290E74DC00A51F23 /* Model.swift */,
+				B46D7DD6290DD74F009F43C3 /* Camera.swift */,
 				B46D7DC0290B2C22009F43C3 /* Renderable.swift */,
 				B46D7DCA290BFF9B009F43C3 /* Texturable.swift */,
-				B46D7DD6290DD74F009F43C3 /* Camera.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -143,6 +158,7 @@
 		B46D7DC2290BFF57009F43C3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B4C9AE32290E7E2800A51F23 /* Models */,
 				B46D7DC3290BFF57009F43C3 /* Images */,
 			);
 			path = Resources;
@@ -156,6 +172,43 @@
 				B46D7DC6290BFF57009F43C3 /* picture.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		B4C9AE32290E7E2800A51F23 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4C9AE33290E7E2800A51F23 /* mushroom */,
+				B4C9AE36290E7E2800A51F23 /* humanFigure */,
+				B4C9AE38290E7E2800A51F23 /* texturedCube */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B4C9AE33290E7E2800A51F23 /* mushroom */ = {
+			isa = PBXGroup;
+			children = (
+				B4C9AE34290E7E2800A51F23 /* mushroom.png */,
+				B4C9AE35290E7E2800A51F23 /* mushroom.obj */,
+			);
+			path = mushroom;
+			sourceTree = "<group>";
+		};
+		B4C9AE36290E7E2800A51F23 /* humanFigure */ = {
+			isa = PBXGroup;
+			children = (
+				B4C9AE37290E7E2800A51F23 /* humanFigure.obj */,
+			);
+			path = humanFigure;
+			sourceTree = "<group>";
+		};
+		B4C9AE38290E7E2800A51F23 /* texturedCube */ = {
+			isa = PBXGroup;
+			children = (
+				B4C9AE39290E7E2800A51F23 /* texturedCube.blend */,
+				B4C9AE3A290E7E2800A51F23 /* texturedCube.png */,
+				B4C9AE3B290E7E2800A51F23 /* texturedCube.obj */,
+			);
+			path = texturedCube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,10 +270,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B46D7DC8290BFF57009F43C3 /* picture-frame.png in Resources */,
+				B4C9AE40290E7E2800A51F23 /* texturedCube.png in Resources */,
+				B4C9AE41290E7E2800A51F23 /* texturedCube.obj in Resources */,
+				B4C9AE3C290E7E2800A51F23 /* mushroom.png in Resources */,
+				B4C9AE3F290E7E2800A51F23 /* texturedCube.blend in Resources */,
 				B46D7DC9290BFF57009F43C3 /* picture.png in Resources */,
+				B4C9AE3E290E7E2800A51F23 /* humanFigure.obj in Resources */,
 				B46D7D9C290722BB009F43C3 /* LaunchScreen.storyboard in Resources */,
 				B46D7DC7290BFF57009F43C3 /* picture-frame-mask.png in Resources */,
 				B46D7D99290722BB009F43C3 /* Assets.xcassets in Resources */,
+				B4C9AE3D290E7E2800A51F23 /* mushroom.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,8 +304,9 @@
 				B46D7DAD2909543A009F43C3 /* Constants.swift in Sources */,
 				B46D7DAB29092720009F43C3 /* Renderer.swift in Sources */,
 				B46D7DA429072436009F43C3 /* MainViewController.swift in Sources */,
-				B46D7DB3290A6A32009F43C3 /* Model.swift in Sources */,
+				B46D7DB3290A6A32009F43C3 /* Types.swift in Sources */,
 				B46D7DC1290B2C22009F43C3 /* Renderable.swift in Sources */,
+				B4C9AE31290E74DC00A51F23 /* Model.swift in Sources */,
 				B46D7DD5290DCDF1009F43C3 /* Cube.swift in Sources */,
 				B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */,
 			);
