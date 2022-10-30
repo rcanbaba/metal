@@ -42,8 +42,9 @@ final class Renderer: NSObject {
 }
 
 extension Renderer: MTKViewDelegate {
+    // called whenever the view size changed, rotating the device etc.
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        // called whenever the view size changed, rotating the device etc.
+        scene?.sceneSizeWillChange(to: size)
     }
     
     // draw textures for every frame

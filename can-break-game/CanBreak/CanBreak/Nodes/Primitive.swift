@@ -24,7 +24,7 @@ class Primitive: Node {
     
     // Renderable
     var pipelineState: MTLRenderPipelineState!
-    var fragmentFunctionName: String = "fragment_shader"
+    var fragmentFunctionName: String = "fragment_color"
     var vertexFunctionName: String = "vertex_shader"
     var modelConstants = ModelConstants()
     
@@ -107,6 +107,7 @@ extension Primitive: Renderable {
         guard let indexBuffer = indexBuffer else {return}
         
         modelConstants.modelViewMatrix = modelViewMatrix
+        modelConstants.materialColor = materialColor
         
         commandEncoder.setRenderPipelineState(pipelineState)
         commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
