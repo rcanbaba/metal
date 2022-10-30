@@ -11,12 +11,14 @@ using namespace metal;
 struct ModelConstants {
     float4x4 modelViewMatrix;
     float4 materialColor;
+    float3x3 normalMatrix;
 };
 
 struct VertexIn {
     float4 position [[ attribute(0) ]];
     float4 color [[ attribute(1) ]];
     float2 textureCoordinates [[ attribute(2) ]];
+    float3 normal [[ attribute(3) ]];
 };
 
 struct VertexOut {
@@ -24,11 +26,14 @@ struct VertexOut {
     float4 color;
     float2 textureCoordinates;
     float4 materialColor;
+    float3 normal;
 };
 
 struct Light {
     float3 color;
     float ambientIntensity;
+    float diffuseIntensity;
+    float3 direction;
 };
 
 struct SceneConstants {
@@ -50,6 +55,8 @@ vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]],
     vertexOut.color = vertexIn.color;
     vertexOut.textureCoordinates = vertexIn.textureCoordinates;
     vertexOut.materialColor = modelConstants.materialColor;
+    
+    vertexOut.normal = modelConstants.normalMatrix * vertexIn.normal;
     
     return vertexOut;
 }
@@ -120,7 +127,13 @@ fragment half4 lit_textured_fragment(VertexOut vertexIn [[ stage_in ]],
     //Ambient
     float3 ambientColor = light.color * light.ambientIntensity;
     
-    color = color * float4(ambientColor, 1);
+    //Diffuse lighting
+    float3 normal = normalize(vertexIn.normal);
+    // saturate func: clamps the value between 0..1
+    float diffuseFactor = saturate(-dot(normal, light.direction));
+    float3 diffuseColor = light.color * light.diffuseIntensity * diffuseFactor;
+    
+    color = color * float4((ambientColor + diffuseColor), 1);
     
     // if the color alpha = 0, discard there
     if (color.a == 0.0) {

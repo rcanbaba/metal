@@ -20,8 +20,12 @@ class LightingScene: Scene {
         mushroom.position.y = -1
         add(childNode: mushroom)
         
-        light.color = SIMD3<Float>(0, 0, 1)
-        light.ambientIntensity = 0.5
+        light.color = SIMD3<Float>(repeating: 1)
+        light.ambientIntensity = 0.2
+        light.diffuseIntensity = 0.8
+        // negative z goes into scene
+        // positive z towards to you
+        light.direction = SIMD3<Float>(0, 0, -1)
     }
     
     override func touchesBegan(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {
