@@ -42,6 +42,7 @@
 		B4C9AE47290E926F00A51F23 /* CrowdScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE46290E926F00A51F23 /* CrowdScene.swift */; };
 		B4C9AE49290E9C6600A51F23 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE48290E9C6600A51F23 /* Instance.swift */; };
 		B4C9AE4B290EA20400A51F23 /* InstanceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */; };
+		B4C9AE4D290EB55D00A51F23 /* grass.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4C9AE4C290EB55D00A51F23 /* grass.obj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		B4C9AE46290E926F00A51F23 /* CrowdScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowdScene.swift; sourceTree = "<group>"; };
 		B4C9AE48290E9C6600A51F23 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceScene.swift; sourceTree = "<group>"; };
+		B4C9AE4C290EB55D00A51F23 /* grass.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grass.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				B4C9AE42290E82CD00A51F23 /* sun.obj */,
+				B4C9AE4C290EB55D00A51F23 /* grass.obj */,
 				B4C9AE33290E7E2800A51F23 /* mushroom */,
 				B4C9AE36290E7E2800A51F23 /* humanFigure */,
 				B4C9AE38290E7E2800A51F23 /* texturedCube */,
@@ -290,6 +293,7 @@
 				B4C9AE3C290E7E2800A51F23 /* mushroom.png in Resources */,
 				B4C9AE3F290E7E2800A51F23 /* texturedCube.blend in Resources */,
 				B46D7DC9290BFF57009F43C3 /* picture.png in Resources */,
+				B4C9AE4D290EB55D00A51F23 /* grass.obj in Resources */,
 				B4C9AE43290E82CD00A51F23 /* sun.obj in Resources */,
 				B4C9AE3E290E7E2800A51F23 /* humanFigure.obj in Resources */,
 				B46D7D9C290722BB009F43C3 /* LaunchScreen.storyboard in Resources */,

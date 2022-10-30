@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
         renderer = Renderer(device: device)
         
         //renderer?.scene = GameScene(device: device, size: view.bounds.size)
-        renderer?.scene = InstanceScene(device: device, size: view.bounds.size)
+        renderer?.scene = LandscapeScene(device: device, size: view.bounds.size)
         metalView.delegate = renderer
     }
 
