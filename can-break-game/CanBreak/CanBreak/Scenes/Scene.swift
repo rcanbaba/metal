@@ -39,4 +39,17 @@ class Scene: Node {
     func sceneSizeWillChange(to size: CGSize) {
         camera.aspect = Float(size.width / size.height)
     }
+    
+    //Touches
+    func touchesBegan(_ view: UIView, touches: Set<UITouch>,
+                      with event: UIEvent?) {}
+    
+    func touchesMoved(_ view: UIView, touches: Set<UITouch>,
+                      with event: UIEvent?) {}
+    
+    func touchesEnded(_ view: UIView, touches: Set<UITouch>,
+                      with event: UIEvent?) {}
+    
+    func touchesCancelled(_ view: UIView, touches: Set<UITouch>,
+                          with event: UIEvent?) {}
 }
