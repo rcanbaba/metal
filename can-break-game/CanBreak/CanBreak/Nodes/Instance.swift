@@ -62,6 +62,9 @@ extension Instance: Renderable {
         for node in nodes {
             pointer.pointee.modelViewMatrix = matrix_multiply(modelViewMatrix, node.modelMatrix)
             pointer.pointee.materialColor = node.materialColor
+            pointer.pointee.normalMatrix = matrix_multiply(modelViewMatrix, node.modelMatrix).upperLeft3x3()
+            pointer.pointee.shininess = node.shininess
+            pointer.pointee.specularIntensity = node.specularIntensity
             pointer = pointer.advanced(by: 1)
         }
         commandEncoder.setFragmentTexture(model.texture, index: 0)
