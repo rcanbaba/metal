@@ -83,6 +83,10 @@ class Model: Node {
         let bufferAllocator = MTKMeshBufferAllocator(device: device)
         let asset = MDLAsset(url: assetURL, vertexDescriptor: descriptor, bufferAllocator: bufferAllocator)
         
+        let boundingBox = asset.boundingBox
+        width = boundingBox.maxBounds.x - boundingBox.minBounds.x
+        height = boundingBox.maxBounds.y - boundingBox.minBounds.y
+        
         do {
             (_, meshes) = try MTKMesh.newMeshes(asset: asset, device: device)
         } catch {

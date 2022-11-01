@@ -60,6 +60,7 @@
 		B4E2408B2911045C001FFD13 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4E240892911045B001FFD13 /* pop.wav */; };
 		B4E2408C2911045C001FFD13 /* bulletstorm_bg_v1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B4E2408A2911045C001FFD13 /* bulletstorm_bg_v1.mp3 */; };
 		B4E2408E2911046F001FFD13 /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2408D2911046F001FFD13 /* SoundController.swift */; };
+		B4E2409029118FE2001FFD13 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2408F29118FE2001FFD13 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		B4E240892911045B001FFD13 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
 		B4E2408A2911045C001FFD13 /* bulletstorm_bg_v1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bulletstorm_bg_v1.mp3; sourceTree = "<group>"; };
 		B4E2408D2911046F001FFD13 /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
+		B4E2408F29118FE2001FFD13 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			children = (
 				B46D7DB9290A88E9009F43C3 /* Scene.swift */,
 				B46D7DBB290A8976009F43C3 /* GameScene.swift */,
+				B4E2408F29118FE2001FFD13 /* GameOverScene.swift */,
 				B4C9AE44290E830900A51F23 /* LandscapeScene.swift */,
 				B4C9AE46290E926F00A51F23 /* CrowdScene.swift */,
 				B4C9AE4A290EA20400A51F23 /* InstanceScene.swift */,
@@ -416,6 +419,7 @@
 				B46D7DD5290DCDF1009F43C3 /* Cube.swift in Sources */,
 				B4E2408E2911046F001FFD13 /* SoundController.swift in Sources */,
 				B4E24087291067CC001FFD13 /* Utilities.swift in Sources */,
+				B4E2409029118FE2001FFD13 /* GameOverScene.swift in Sources */,
 				B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
