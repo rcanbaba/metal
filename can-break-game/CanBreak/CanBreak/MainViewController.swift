@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         setMetal()
+        SoundController.shared.playBackgroundMusic("bulletstorm_bg_v1.mp3")
     }
     
     private func setMetal() {
@@ -27,7 +28,7 @@ class MainViewController: UIViewController {
         guard let device = metalView.device else {
             fatalError("Device not created! Run on a physical device.")
         }
-        metalView.clearColor = Colors.skyBlue
+        metalView.clearColor = Colors.gameBackground
         // Do this settings, there is a bug if you dont set
         metalView.depthStencilPixelFormat = .depth32Float
         renderer = Renderer(device: device)

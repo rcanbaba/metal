@@ -57,6 +57,9 @@
 		B4E24084291067B4001FFD13 /* brick.obj in Resources */ = {isa = PBXBuildFile; fileRef = B4E24078291067B4001FFD13 /* brick.obj */; };
 		B4E24085291067B4001FFD13 /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E24079291067B4001FFD13 /* brick.png */; };
 		B4E24087291067CC001FFD13 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E24086291067CC001FFD13 /* Utilities.swift */; };
+		B4E2408B2911045C001FFD13 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4E240892911045B001FFD13 /* pop.wav */; };
+		B4E2408C2911045C001FFD13 /* bulletstorm_bg_v1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B4E2408A2911045C001FFD13 /* bulletstorm_bg_v1.mp3 */; };
+		B4E2408E2911046F001FFD13 /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2408D2911046F001FFD13 /* SoundController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +115,9 @@
 		B4E24078291067B4001FFD13 /* brick.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = brick.obj; sourceTree = "<group>"; };
 		B4E24079291067B4001FFD13 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
 		B4E24086291067CC001FFD13 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		B4E240892911045B001FFD13 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
+		B4E2408A2911045C001FFD13 /* bulletstorm_bg_v1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bulletstorm_bg_v1.mp3; sourceTree = "<group>"; };
+		B4E2408D2911046F001FFD13 /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 			children = (
 				B46D7DA72907267F009F43C3 /* Core */,
 				B46D7DA329072436009F43C3 /* MainViewController.swift */,
+				B4E2408D2911046F001FFD13 /* SoundController.swift */,
 				B46D7DA829091907009F43C3 /* Shader.metal */,
 				B46D7DAA29092720009F43C3 /* Renderer.swift */,
 				B4E24086291067CC001FFD13 /* Utilities.swift */,
@@ -204,6 +211,7 @@
 		B46D7DC2290BFF57009F43C3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B4E240882911043D001FFD13 /* Sounds */,
 				B4C9AE32290E7E2800A51F23 /* Models */,
 				B46D7DC3290BFF57009F43C3 /* Images */,
 			);
@@ -279,6 +287,15 @@
 			path = "Game Models";
 			sourceTree = "<group>";
 		};
+		B4E240882911043D001FFD13 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B4E2408A2911045C001FFD13 /* bulletstorm_bg_v1.mp3 */,
+				B4E240892911045B001FFD13 /* pop.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,6 +362,7 @@
 				B4E24084291067B4001FFD13 /* brick.obj in Resources */,
 				B4E24083291067B4001FFD13 /* youlose.obj in Resources */,
 				B4E2407D291067B4001FFD13 /* paddle.obj in Resources */,
+				B4E2408B2911045C001FFD13 /* pop.wav in Resources */,
 				B4E2407F291067B4001FFD13 /* youwin.obj in Resources */,
 				B4E24085291067B4001FFD13 /* brick.png in Resources */,
 				B4E2407A291067B4001FFD13 /* youlose.png in Resources */,
@@ -352,6 +370,7 @@
 				B4E24081291067B4001FFD13 /* ball.obj in Resources */,
 				B4E2407E291067B4001FFD13 /* youwin.png in Resources */,
 				B4C9AE3F290E7E2800A51F23 /* texturedCube.blend in Resources */,
+				B4E2408C2911045C001FFD13 /* bulletstorm_bg_v1.mp3 in Resources */,
 				B4E24080291067B4001FFD13 /* paddle.png in Resources */,
 				B46D7DC9290BFF57009F43C3 /* picture.png in Resources */,
 				B4C9AE4D290EB55D00A51F23 /* grass.obj in Resources */,
@@ -395,6 +414,7 @@
 				B46D7DC1290B2C22009F43C3 /* Renderable.swift in Sources */,
 				B4C9AE31290E74DC00A51F23 /* Model.swift in Sources */,
 				B46D7DD5290DCDF1009F43C3 /* Cube.swift in Sources */,
+				B4E2408E2911046F001FFD13 /* SoundController.swift in Sources */,
 				B4E24087291067CC001FFD13 /* Utilities.swift in Sources */,
 				B46D7DBA290A88E9009F43C3 /* Scene.swift in Sources */,
 			);
