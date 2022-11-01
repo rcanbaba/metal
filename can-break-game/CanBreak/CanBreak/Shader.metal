@@ -56,11 +56,11 @@ vertex VertexOut vertex_shader(const VertexIn vertexIn [[ stage_in ]],
     
     float4x4 matrix = sceneConstants.projectionMatrix * modelConstants.modelViewMatrix;
     vertexOut.position = matrix * vertexIn.position;
-    
     vertexOut.color = vertexIn.color;
     vertexOut.textureCoordinates = vertexIn.textureCoordinates;
     vertexOut.materialColor = modelConstants.materialColor;
-    
+    vertexOut.shininess = modelConstants.shininess;
+    vertexOut.specularIntensity = modelConstants.specularIntensity;
     vertexOut.normal = modelConstants.normalMatrix * vertexIn.normal;
     vertexOut.eyePosition = (modelConstants.modelViewMatrix * vertexIn.position).xyz;
     
@@ -77,10 +77,13 @@ vertex VertexOut vertex_instance_shader(const VertexIn vertexIn [[ stage_in ]],
     
     float4x4 matrix = sceneConstants.projectionMatrix * modelConstants.modelViewMatrix;
     vertexOut.position = matrix * vertexIn.position;
-    
     vertexOut.color = vertexIn.color;
     vertexOut.textureCoordinates = vertexIn.textureCoordinates;
     vertexOut.materialColor = modelConstants.materialColor;
+    vertexOut.shininess = modelConstants.shininess;
+    vertexOut.specularIntensity = modelConstants.specularIntensity;
+    vertexOut.normal = modelConstants.normalMatrix * vertexIn.normal;
+    vertexOut.eyePosition = (modelConstants.modelViewMatrix * vertexIn.position).xyz;
     
     return vertexOut;
 }
