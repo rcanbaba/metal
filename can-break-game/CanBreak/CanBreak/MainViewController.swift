@@ -34,7 +34,9 @@ class MainViewController: UIViewController {
         renderer = Renderer(device: device)
         
         //renderer?.scene = GameScene(device: device, size: view.bounds.size)
-        renderer?.scene = GameScene(device: device, size: view.bounds.size)
+        let scene = GameScene(device: device, size: view.bounds.size)
+        scene.sceneTransitionDelegate = self
+        renderer?.scene = scene
         metalView.delegate = renderer
     }
 
@@ -68,3 +70,10 @@ class MainViewController: UIViewController {
     }
 }
 
+extension MainViewController: SceneTransitionDelegate {
+    func transition(to scene: Scene) {
+        scene.size = view.bounds.size
+        scene.sceneTransitionDelegate = self
+        renderer?.scene = scene
+    }
+}

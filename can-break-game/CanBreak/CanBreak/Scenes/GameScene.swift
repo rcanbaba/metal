@@ -37,7 +37,7 @@ class GameScene: Scene {
         camera.position.x = -Constants.gameWidth / 2
         camera.position.y = -Constants.gameHeight / 2
         camera.rotation.x = radians(fromDegrees: 20)
-        camera.position.y = -Constants.gameHeight / 2 + 5
+        camera.position.y = -Constants.gameHeight / 2 + 4
         
         light.color = SIMD3<Float>(repeating: 1)
         light.ambientIntensity = 0.3
@@ -73,8 +73,7 @@ class GameScene: Scene {
             bounced = true
         }
         if ball.position.y < 0 {
-            ballVelocityY = -ballVelocityY
-            bounced = true
+            endGame(win: false)
         }
         
         // checks paddle-ball collision
@@ -95,6 +94,10 @@ class GameScene: Scene {
                 bricks.remove(instance: index)
                 break
             }
+        }
+        
+        if bricks.nodes.count == 0 {
+          endGame(win: true)
         }
         
         if bounced {
@@ -140,6 +143,12 @@ class GameScene: Scene {
         }
         
         add(childNode: bricks )
+    }
+    
+    func endGame(win: Bool) {
+        let gameOverScene = GameOverScene(device: device, size: size)
+        gameOverScene.win = win
+        sceneTransitionDelegate?.transition(to: gameOverScene)
     }
     
     override func touchesBegan(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {

@@ -7,9 +7,19 @@
 
 import MetalKit
 
+protocol SceneTransitionDelegate {
+    func transition(to scene: Scene)
+}
+
 class Scene: Node {
+    var sceneTransitionDelegate: SceneTransitionDelegate?
+    
     var device: MTLDevice
-    var size: CGSize
+    var size: CGSize {
+        didSet {
+            sceneSizeWillChange(to: size)
+        }
+    }
     var camera = Camera()
     var sceneConstants = SceneConstants()
     var light = Light()
