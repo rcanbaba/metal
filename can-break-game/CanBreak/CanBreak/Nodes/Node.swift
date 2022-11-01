@@ -17,6 +17,9 @@ class Node {
     var specularIntensity: Float = 1
     var shininess: Float = 1
     
+    var width: Float = 1.0
+    var height: Float = 1.0
+    
     var modelMatrix: matrix_float4x4 {
         // set position
         var matrix = matrix_float4x4(translationX: position.x, y: position.y, z: position.z)
@@ -47,4 +50,16 @@ class Node {
             commandEncoder.popDebugGroup()
         }
     }
+    
+    func boundingBox(_ parentModelViewMatrix: matrix_float4x4) -> CGRect {
+        let modelViewMatrix = matrix_multiply(parentModelViewMatrix, modelMatrix)
+        var lowerLeft = SIMD4<Float>(-width/2, -height/2, 0, 1)
+        lowerLeft = matrix_multiply(modelViewMatrix, lowerLeft)
+        var upperRight = SIMD4<Float>(width/2, height/2, 0, 1)
+        upperRight = matrix_multiply(modelViewMatrix, upperRight)
+        
+        let boundingBox = CGRect(x: CGFloat(lowerLeft.x), y: CGFloat(lowerLeft.y), width: CGFloat(upperRight.x - lowerLeft.x), height: CGFloat(upperRight.y - lowerLeft.y))
+        return boundingBox
+    }
+    
 }

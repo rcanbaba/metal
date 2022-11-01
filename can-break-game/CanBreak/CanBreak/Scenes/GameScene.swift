@@ -21,7 +21,14 @@ class GameScene: Scene {
     
     let bricks: Instance
     
+    var previousTouchLocation: CGPoint = .zero
+    
+    var ballVelocityX: Float = 0
+    var ballVelocityY: Float = 0
+    
     override init(device: MTLDevice, size: CGSize) {
+        ballVelocityX = 20
+        ballVelocityY = 15
         ball = Model(device: device, modelName: "ball")
         paddle = Model(device: device, modelName: "paddle")
         bricks = Instance(device: device, modelName: "brick", instances: Constants.bricksPerRow * Constants.bricksPerColumn)
@@ -40,10 +47,58 @@ class GameScene: Scene {
     }
     
     override func update(deltaTime: Float) {
+        var bounced = false
         for brick in bricks.nodes {
             brick.rotation.x += π / 4 * deltaTime
             brick.rotation.y += π / 4 * deltaTime
             brick.rotation.z += π / 4 * deltaTime
+        }
+        
+        ball.position.x += ballVelocityX * deltaTime
+        ball.position.y += ballVelocityY * deltaTime
+        //ball.position.z += 10 * deltaTime
+        if ball.position.y > Constants.gameHeight {
+            ball.position.y = Constants.gameHeight
+            ballVelocityY = -ballVelocityY
+            bounced = true
+        }
+        if ball.position.x < 0 {
+            ball.position.x = 0
+            ballVelocityX = -ballVelocityX
+            bounced = true
+        }
+        if ball.position.x > Constants.gameWidth {
+            ball.position.x = Constants.gameWidth
+            ballVelocityX = -ballVelocityX
+            bounced = true
+        }
+        if ball.position.y < 0 {
+            ballVelocityY = -ballVelocityY
+            bounced = true
+        }
+        
+        // checks paddle-ball collision
+        let ballRect = ball.boundingBox(camera.viewMatrix)
+        let paddleRect = paddle.boundingBox(camera.viewMatrix)
+        
+        if ballRect.intersects(paddleRect) {
+            ballVelocityY = -ballVelocityY
+            bounced = true
+        }
+        
+        // checks bircks-ball collision
+        for (index, brick) in bricks.nodes.enumerated() {
+            let brickRect = brick.boundingBox(camera.viewMatrix)
+            
+            if ballRect.intersects(brickRect) {
+                ballVelocityY = -ballVelocityY
+                bricks.remove(instance: index)
+                break
+            }
+        }
+        
+        if bounced {
+            SoundController.shared.playPopEffect()
         }
     }
     
@@ -85,6 +140,24 @@ class GameScene: Scene {
         }
         
         add(childNode: bricks )
+    }
+    
+    override func touchesBegan(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        previousTouchLocation = touch.location(in: view)
+    }
+    
+    override func touchesMoved(_ view: UIView, touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let touchLocation = touch.location(in: view)
+        let delta = CGPoint(x: touchLocation.x - previousTouchLocation.x, y: touchLocation.y - previousTouchLocation.y)
+        let deltaX = Float(delta.x) * (Constants.gameWidth / Float(size.width))
+        
+        var newX = paddle.position.x + deltaX
+        newX = min(max(newX, paddle.width/2), Constants.gameWidth - paddle.width/2)
+        paddle.position.x = newX
+        
+        previousTouchLocation = touchLocation
     }
     
 }
