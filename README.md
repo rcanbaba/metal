@@ -9,3 +9,6 @@ CanBreak game development notes,
 - MTKViewDelegate calls func draw(in view: MTKView) method 60 times per second
 - we must finish encoding all the commands then sent the command buffer to GPU(device)
 - MTKViewDelegate calls func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize)  whenever the view size changed, rotating the device etc.
+
+| Game Scene | <a href="url"><img src="https://github.com/rcanbaba/metal/blob/main/readmeImages/metal-game.png" align="left" height="375" width="175" ></a>
+| ------------- | ------------- |
